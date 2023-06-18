@@ -3,7 +3,8 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import customer from './Routes/customers.js';
 import bodyParser from 'body-parser';
-import adminadddata from './Routes/admindata.js';
+import categoryrouter from './Routes/categoryroutes.js';
+import productrouter from './Routes/productroutes.js';
 
 const app = express();
 const apiKey="mongodb+srv://badarhamza320:hamzi123%40%21@cluster0.kzi3he5.mongodb.net/HomeDecor?retryWrites=true&w=majority";
@@ -27,6 +28,9 @@ app.use(bodyParser.json({extended:true}));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use('/signup',customer)
 app.use('/login',customer)
+app.use('/addproduct',productrouter);
+app.use('/addcategory',categoryrouter);
+app.use('/products',productrouter);
+app.use('/categories',categoryrouter);
+app.use('/category/:id',categoryrouter);
 app.use('/images',express.static('images'));
-app.use('/addproduct',adminadddata);
-app.use('/products',adminadddata);

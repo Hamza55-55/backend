@@ -1,10 +1,11 @@
 import mongoose from 'mongoose';
-const adminstructure=mongoose.Schema({
+const productSchema = mongoose.Schema({
+    categoryId: { type: String },
     name: { type: String, required: true },
     price: { type: String, required: true },
     image: {
         type: String,
     }
 });
-const adminmodel=mongoose.model("product",adminstructure);
-export default adminmodel;
+const productModel=mongoose.model("product",productSchema);
+export default productModel;

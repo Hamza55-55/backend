@@ -1,8 +1,8 @@
-import { addProduct, getAllProducts } from '../Controller/adminaddcontroller.js';
+import { getAllCategories, addCategory, deleteCategory } from '../Controller/catogerycontroller.js';
 import express from 'express';
 import multer from 'multer';
 
-const adminadddata = express.Router();
+const categoryrouter = express.Router();
 
 
 const storage = multer.diskStorage({
@@ -16,9 +16,13 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-adminadddata.post('/',upload.single('image'), addProduct);
+categoryrouter.post('/',upload.single('image'), addCategory);
 
-adminadddata.post("/",addProduct);
-adminadddata.get("/",getAllProducts);
-export default adminadddata;
+
+
+categoryrouter.get("/", getAllCategories);
+categoryrouter.post("/", addCategory);
+// categoryrouter.put("/", updateCategory);
+categoryrouter.delete("/" ,deleteCategory);
+export default categoryrouter;
 
