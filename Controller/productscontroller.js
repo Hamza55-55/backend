@@ -2,13 +2,14 @@
 import productModel from '../models/product.js';
 
 export const addProduct = async (req, res) => {
-  const { name, price, imgFile, categoryId } = req.body;
+  const { name, price, imgFile, quantity, categoryId } = req.body;
   try {
     // Create a new instance of the Product model and populate it with the data
     const newProduct = new productModel({
           categoryId,
           name,
           price,
+          quantity,
           image: req.file.path
     });
 
