@@ -5,9 +5,10 @@ import customer from './Routes/customers.js';
 import bodyParser from 'body-parser';
 import categoryrouter from './Routes/categoryroutes.js';
 import productrouter from './Routes/productroutes.js';
-
+import dotenv from "dotenv";
+dotenv.config();
 const app = express();
-const apiKey="mongodb+srv://badarhamza320:hamzi123%40%21@cluster0.kzi3he5.mongodb.net/HomeDecor?retryWrites=true&w=majority";
+const apiKey=process.env.MONGODB_URL;
 mongoose.connect(apiKey, { useUnifiedTopology: true, useNewUrlParser: true })
   .then(() => {
     console.log("yes Connected");
