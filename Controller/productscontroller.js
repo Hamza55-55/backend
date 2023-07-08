@@ -35,3 +35,14 @@ export const getAllProducts = async (req, res) => {
   }
 };
 
+export const deleteProduct = async (req, res) => {
+  try {
+   
+    const data = await productModel.deleteOne({ _id: req.body._id });
+    res.json({ success: true, data: data });
+  } catch (error) {
+    console.error('Error deleting product:', error);
+    res.status(500).json({ message: 'Failed to delete product' });
+  }
+};
+

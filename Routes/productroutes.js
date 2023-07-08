@@ -1,4 +1,4 @@
-import { addProduct, getAllProducts } from '../Controller/productscontroller.js';
+import { addProduct, getAllProducts, deleteProduct } from '../Controller/productscontroller.js';
 import express from 'express';
 import multer from 'multer';
 
@@ -21,6 +21,7 @@ productrouter.post('/',upload.single('image'), addProduct);
 // productrouter.post('/',upload.single('image'), addProduct);
 
 productrouter.post("/",addProduct);
+productrouter.post("/product",deleteProduct);
 productrouter.get("/",getAllProducts);
 
 export default productrouter;

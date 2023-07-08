@@ -30,7 +30,10 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use('/signup',customer)
 app.use('/login',customer)
 app.use('/addproduct',productrouter);
+app.use('/delete',productrouter);
 app.use('/addcategory',categoryrouter);
+app.use('/delete',categoryrouter);
+
 app.use('/products',productrouter);
 app.use('/categories',categoryrouter);
 app.use('/category/:id',categoryrouter);

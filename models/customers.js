@@ -5,6 +5,7 @@ lname:String,
 email:String,
 password:String,
 cpassword:String,
+token:String,
 });
 const Customrmodel=mongoose.model("customer",customrstructure);
 export default Customrmodel;

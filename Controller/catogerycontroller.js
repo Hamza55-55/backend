@@ -23,7 +23,7 @@ export const deleteCategory = async (req, res) => {
   try {
     console.log('aaa 11', req.params.id)
     // console.log('res 22 ', res)
-    const categories = await categoryModel.delete(req);
+    const categories = await categoryModel.deleteOne({_id: req.body._id});
     res.json({ success: true, categories });
   } catch (error) {
     console.error('Error delete category:', error);

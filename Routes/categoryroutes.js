@@ -23,6 +23,6 @@ categoryrouter.post('/',upload.single('image'), addCategory);
 categoryrouter.get("/", getAllCategories);
 categoryrouter.post("/", addCategory);
 // categoryrouter.put("/", updateCategory);
-categoryrouter.delete("/" ,deleteCategory);
+categoryrouter.post("/category" ,deleteCategory);
 export default categoryrouter;
 
